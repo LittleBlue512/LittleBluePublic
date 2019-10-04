@@ -1,5 +1,5 @@
 
-def sailor_mate(w, s):  # w -> winds, s -> sail
+def sailor_mate(w, s):  # w -> wind, s -> sail
     w = int(w[:w.find(':')])*30 + int(w[w.find(':')+1:])*0.50
     s = int(s[:s.find(':')])*30 + int(s[s.find(':')+1:])*0.50
     diff = abs(w - 180)
