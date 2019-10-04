@@ -1,1 +1,1 @@
-<h1>LittleBlue's Public Place</h1>
+<h1>LittleBlue's Public Repository</h1>
