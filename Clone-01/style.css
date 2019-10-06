@@ -92,4 +92,7 @@ footer {
 }
 
 @media(max-width: 425px) {
+    #welcome {
+        font-size: 3rem;
+    }
 }
