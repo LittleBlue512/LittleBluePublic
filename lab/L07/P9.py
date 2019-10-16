@@ -1,11 +1,11 @@
 
 def sailor(data):
     minutes = data['H']*60 + data['M']
-    meridien = data['am/pm']
-    if meridien == 'am':
+    meridiem = data['am/pm']
+    if meridiem == 'am':
         minutes = 720 - minutes
     angle = minutes/4
-    if meridien == 'am':
+    if meridiem == 'am':
         direction = 'East'
     else:
         direction = 'West'
