@@ -17,6 +17,7 @@ def clean_txt(msg):
 def word_freq(msg):
 
     cleaned = clean_txt(msg)
+    cleaned = clean_txt(cleaned)
 
     wfreq = dict()  # dummy
     # Write your code here

@@ -11,10 +11,6 @@ def sailor(data):
         direction = 'West'
     if angle > 180:
         angle -= 180
-        if direction == 'East':
-            direction = 'West'
-        else:
-            direction = 'East'
     return angle, direction
 
 
