@@ -4,7 +4,7 @@ const socket = require('socket.io');
 const app = express();
 
 const port = 5000;
-const server = app.listen(port, () => console.log(`Server started on port ${port} .....`));
+const server = app.listen(port, () => console.log(`Server started on port ${port}.....`));
 
 app.use(express.static(path.join(__dirname, 'public')));
 

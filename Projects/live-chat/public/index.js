@@ -21,7 +21,7 @@ sendButton.addEventListener('click', () => {
 });
 
 // Listen on Emit from Server
-var firstLoad = true; // Dealing With Chat Scrolling
+var firstLoad = true; // Dealing with Chat Scrolling
 socket.on('chat', (data) => {
     let messageDisplay = document.getElementById('messageDisplay');
     let name = data.name;
