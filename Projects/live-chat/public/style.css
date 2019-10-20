@@ -1,0 +1,25 @@
+html {
+    height: 100vh;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    height: 100%;
+}
+
+#chatName, #messageDisplay, #messageBox, #sendButton, #nameBox {
+    font-size: 1.2rem;
+}
+
+#chatBox {
+    height: 80%;
+}
+
+@media(max-width: 425px) {
+    #chatName, #messageDisplay, #messageBox, #sendButton, #nameBox {
+        font-size: 1rem;
+    }
+}
