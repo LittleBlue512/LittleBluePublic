@@ -7,15 +7,12 @@ sendButton.addEventListener('click', () => {
     let nameBox = document.getElementById('nameBox');
     let message = messageBox.value;
     let name = nameBox.value;
-
     if (name === '' || message === '') {
         alert('Please enter name and message');
     }
-
     // Empty Input Box
     messageBox.value = '';
     nameBox.value = '';
-
     // Emit Message
     socket.emit('chat', {
         message: message,

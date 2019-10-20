@@ -11,11 +11,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Setup Socket
 const io = socket(server);
 
-
 // Listen on Socket Connection
 io.on('connection', (socket) => {
-    console.log(`Soket ID: ${socket.id}`);
-
     // Emit Data to all Sockets
     socket.on('chat', (data) => {
         io.sockets.emit('chat', data);
