@@ -1,0 +1,4 @@
+Cambodia=Bokor
+Malaysia=Kinabalu
+Vietnam=Phong Nha-Ke Bang
+Thailand=Khao Sok
