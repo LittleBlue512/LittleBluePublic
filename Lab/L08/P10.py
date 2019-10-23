@@ -10,7 +10,7 @@ def getBondEnergy(bondEnergy):
 
 # Return list of substrates and list of products
 # ['{cnt1}', '{substrate1}', '{cnt2}', '{substrate2}', ...]
-# ['{cnt1}', '{product1}', '{cnt2}', '{produc2t}', ...]
+# ['{cnt1}', '{product1}', '{cnt2}', '{product2}', ...]
 def getBondReaction(reaction):
     res, skipFirstLine = list(), True
     with open(reaction, 'r') as file:
