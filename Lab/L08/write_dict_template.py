@@ -9,13 +9,11 @@ Then, the function writes all key-value pairs to a file
 
 from checkdict import sorted_keys
 
+def write_records(fname, dcontent):
 
-def write_records(fileName, _dict):
-    dictKeys = sorted_keys(_dict)
-    with open(fileName, 'a') as file:
-        for key in dictKeys:
-            file.write('='.join([key, _dict[key]]) + '\n')
+    asc_keys = sorted_keys(dcontent)
 
+    # Write your code here!
 
 if __name__ == '__main__':
     world_heritage = {'Ayutthaya': 'Cultural 710 acre',

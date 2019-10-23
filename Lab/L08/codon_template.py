@@ -13,7 +13,6 @@ with a "=" in between.
 NCBI GenBank, looking for download "FASTA")
 """
 
-
 def read_codons(fname):
     d = {}
     with open(fname, 'r') as f:
@@ -25,37 +24,25 @@ def read_codons(fname):
 
     return d
 
-
 def codon(codon_table, gene):
     cod_tab = read_codons(codon_table)
 
-    # Read DNA sequence
-    skipFirstLine = True
-    dna = ''
-    with open(gene, 'r') as file:
-        for line in file:
-            if skipFirstLine:
-                skipFirstLine = False
-                continue
-            dna += line.rstrip('\n')
+    # Read DNA sequence first
+    dna = ""
 
-    # Decipher
-    polypep = list()
-    dna_length = len(dna)
-    for i in range(0, dna_length, 3):
-        seq = dna[i:i+3]
-        polypep.append(cod_tab[seq])
+    # print(dna) # to check whether the reading is fine.
+
+    # Translate each 3-letter set in DNA sequence to an amino acid
+    polypep = []
 
     return polypep
-
 
 if __name__ == '__main__':
     res = codon('codons.txt', 'homo_sapiens_mitochondrion.txt')
     print(res)
-    print(len(res))
 
     # Try this too. Note.
     # This is a long sequence with MULTIPLE LINES.
-    res = codon('codons.txt', 'homo_sapiens_insulin.txt')
-    print(res)
-    print(len(res))
+    # res = codon('codons.txt', 'homo_sapiens_insulin.txt')
+    # print(res)
+

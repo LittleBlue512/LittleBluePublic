@@ -2,8 +2,9 @@ import math
 
 
 # Return a dictionary containing the frequency of words in the file.
+# { word:str => frequency:int }
 def getWords(fileName):
-    # Skip the first line!!!!!
+    # Skip the first line
     skipFirstLine = True
     res = dict()
     with open(fileName, 'r') as file:
@@ -11,7 +12,7 @@ def getWords(fileName):
             if (skipFirstLine):
                 skipFirstLine = False
                 continue
-            words = [x.rstrip('. \n').rstrip('.').lower() for x in line.split(' ')]
+            words = [x.rstrip('. \n').lower() for x in line.split(' ')]
             for word in words:
                 if word in res:
                     res[word] += 1
@@ -21,6 +22,7 @@ def getWords(fileName):
 
 
 # Return a 2D dictionary containing the frequency of words in each file.
+# { filename:str => words:dict }
 def getFiles(fileList):
     res = dict()
     for fileName in fileList:
@@ -28,6 +30,7 @@ def getFiles(fileList):
     return res
 
 
+# Calculate "Inverse Document Frequency" (The second half)
 def getSecondHalf(word, fileWords):
     Nt = 0
     for words in fileWords.values():
@@ -64,6 +67,6 @@ def nice_print2Ddict(d):
 
 
 if __name__ == '__main__':
-    cultures = ['chinese.txt', 'thai.txt', 'japanese.txt']
+    cultures = ['./short/chinese.txt', './short/thai.txt', './short/japanese.txt']
     res = culture_tf_idf(cultures)
     nice_print2Ddict(res)

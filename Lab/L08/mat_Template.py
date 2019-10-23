@@ -7,14 +7,17 @@ and returns a 2D list of integers
 corresponding to the file content.
 """
 
+def read_mat(fname):
+    mat = []
+    with open(fname, 'r') as f:
+        for line in f:
 
-def read_mat(fileName):
-    res = list()
-    with open(fileName, 'r') as file:
-        for line in file:
-            res.append([int(x.rstrip()) for x in line.split(' ')])
-    return res
+            row = []
+            # Write your code here
 
+            mat.append(row)
+
+    return mat
 
 if __name__ == '__main__':
 

@@ -1,4 +1,4 @@
-
+# Return dictionary containing { Bond:str => Energy:int }
 def getBondEnergy(bondEnergy):
     res = dict()
     with open(bondEnergy, 'r') as file:
@@ -8,6 +8,9 @@ def getBondEnergy(bondEnergy):
     return res
 
 
+# Return list of substrates and list of products
+# ['{cnt1}', '{substrate1}', '{cnt2}', '{substrate2}', ...]
+# ['{cnt1}', '{product1}', '{cnt2}', '{produc2t}', ...]
 def getBondReaction(reaction):
     res, skipFirstLine = list(), True
     with open(reaction, 'r') as file:
@@ -24,13 +27,13 @@ def getBondReaction(reaction):
 def fire(bondEnergy, reaction):
     bondTable = getBondEnergy(bondEnergy)
     substrate, product = getBondReaction(reaction)
-    Ea, Er = 0, 0
+    E1, E2 = 0, 0
     for i in range(1, len(substrate), 2):
-        Ea += bondTable[substrate[i]] * int(substrate[i-1])
+        E1 += bondTable[substrate[i]] * int(substrate[i-1])
     for i in range(1, len(product), 2):
-        Er += bondTable[product[i]] * int(product[i-1])
+        E2 += bondTable[product[i]] * int(product[i-1])
     with open(reaction, 'a') as file:
-        file.write('\nEa = {} kJ, Er = {} kJ, E = {} kJ'.format(float(Ea), float(Er), float(Ea) - float(Er)))
+        file.write('\nEa = {:,.1f} kJ, Er = {:,.1f} kJ, E = {:,.1f} kJ'.format(E1, E2, E1-E2))
 
 
 if __name__ == '__main__':
