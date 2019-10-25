@@ -12,6 +12,7 @@ and the second level key is a word.
 
 import math
 
+
 def clean_words(m):
     m = m.replace('\n', ' ')
     m = m.replace('.', ' ')
@@ -20,6 +21,7 @@ def clean_words(m):
     m = m.lower()
 
     return m
+
 
 def nice_print2Ddict(d):
     dkeys = list(d.keys())
@@ -65,7 +67,7 @@ def culture_tf_idf(culture_list):
             # print('header:', header)
             # print('msg:', msg)
 
-            words = msg.split()
+            words = msg.split()  # .split(' '). "Words" are list of word form each file
             for t in words:
                 if t in d:
                     d[t] += 1
@@ -73,10 +75,8 @@ def culture_tf_idf(culture_list):
                     d[t] = 1
 
             # print('d = ', d)
-            #
-            Ftd[c] = d
 
-    # print('Ftd = ', Ftd)
+            Ftd[c] = d
 
     ########################################################
     # IDF
@@ -87,7 +87,7 @@ def culture_tf_idf(culture_list):
     ############
     # Find N
     ############
-    N = len(Ftd) # number of documents
+    N = len(Ftd)  # number of documents
     # print('N = ', N)
 
     ########################################################
@@ -115,11 +115,10 @@ def culture_tf_idf(culture_list):
         term_freq = Ftd[d]
 
         # Find the TF denominator
+        # sum_all_ftd = sum(term_freq)
         sum_all_ftd = 0
         for t in term_freq:
             sum_all_ftd += term_freq[t]
-
-        # print(d, ': sum_all_ftd = ', sum_all_ftd)
 
         #########################
         # Calculate TF-IDF
@@ -132,9 +131,10 @@ def culture_tf_idf(culture_list):
         tfidf_ = {}
 
         # Write your code here!!!
+        for t in term_freq:
+            tfidf_[t] = (Ftd[d][t]/sum_all_ftd) * math.log(N/(1+Nt[t]))
 
         # print('F[{}, {}] = '.format(d, t), Ftd[d][t])
-
 
         TF_IDF[d] = tfidf_
 
@@ -148,5 +148,3 @@ if __name__ == '__main__':
 
     res = culture_tf_idf(cultures)
     nice_print2Ddict(res)
-
-
