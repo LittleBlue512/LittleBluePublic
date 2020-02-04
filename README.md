@@ -1,1 +1,1 @@
-# Computer Programming Lab 2019 (Python) (LittleBlue)
+# Computer Programming Python Lab 2019 (LittleBlue)
